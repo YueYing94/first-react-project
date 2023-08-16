@@ -10,7 +10,7 @@ import { useState } from "react";
 function App() {
   const [showText, setShowText] = useState(false);
 
-  return (
+  return ( 
     <div className="App">
       <Input />
       <Welcome />

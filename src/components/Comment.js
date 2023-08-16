@@ -1,5 +1,6 @@
 import React from "react";
 import { useState } from "react";
+import { Crud } from "./Crud";
 
 function Comment() {
   const [list, setList] = useState([]);
@@ -39,17 +40,13 @@ function Comment() {
       <div>
         {list.map((element) => {
           return (
-            <div
-              style={{ backgroundColor: element.completed ? "green" : "#282c34" }}
-            >
-              <h4>
-                {element.commentName}{" "}
-                <button onClick={() => deleteComment(element.id)}>x</button>
-                {!element.completed && (
-                  <button onClick={() => completeComment(element.id)}>√</button>
-                )}
-              </h4>
-            </div>
+            <Crud
+              commentName={element.commentName}
+              id={element.id}
+              deleteComment={deleteComment}
+              completed={element.completed}
+              completeComment={completeComment}
+            />
           );
         })}
       </div>
