@@ -1,8 +1,9 @@
 import React from "react";
 import { useState } from "react";
 import { Crud } from "./Crud";
+import Like from "../components/Like";
 
-function Comment() {
+export const Comment = () => {
   const [list, setList] = useState([]);
   const [newComment, setNewComment] = useState("");
   const handleChange = (event) => {
@@ -33,6 +34,8 @@ function Comment() {
 
   return (
     <div>
+      <h1>Leave a comment</h1>
+      <Like />
       <div>
         <input onChange={handleChange} />
         <button onClick={addComment}>Leave your Comment</button>
@@ -52,6 +55,4 @@ function Comment() {
       </div>
     </div>
   );
-}
-
-export default Comment;
+};

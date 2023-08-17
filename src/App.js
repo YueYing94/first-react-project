@@ -1,42 +1,28 @@
 import "./App.css";
-import Greet from "./components/Greet";
-import Welcome from "./components/Welcome";
-import User from "./components/User";
-import Like from "./components/Like";
 import Input from "./components/Input";
-import Comment from "./components/Comment";
-import Api from "./components/Api";
-import Movie from "./components/Movie";
-import { useState } from "react";
+
+import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
+import { Home } from "./pages/home";
+import { Comment } from "./pages/Comment";
+import { About } from "./pages/About";
 
 function App() {
-  const [showText, setShowText] = useState(false);
-
   return (
     <div className="App">
+      <Router>
+        <div>
+          <Link to="/"> Home </Link>
+          <Link to="/comment"> Comment </Link>
+          <Link to="/about"> About </Link>
+        </div>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/comment" element={<Comment />} />
+          <Route path="/about" element={<About />} />
+          <Route path="*" element={<h1>Page not found</h1>} />
+        </Routes>
+      </Router>
       <Input />
-      <Welcome />
-      <Like />
-      <button
-        onClick={() => {
-          setShowText(!showText);
-        }}
-      >
-        About Me
-      </button>
-
-      {showText && (
-        <User
-          address="Rotterdam, the Netherlands"
-          email="sarahyingyue1994@gmail.com"
-          github="https://github.com/YueYing94"
-          linkedin="https://www.linkedin.com/in/yueying94/"
-        />
-      )}
-      <Greet />
-      <Comment />
-      <Api />
-      <Movie />
     </div>
   );
 }
