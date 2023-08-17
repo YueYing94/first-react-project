@@ -5,12 +5,14 @@ import User from "./components/User";
 import Like from "./components/Like";
 import Input from "./components/Input";
 import Comment from "./components/Comment";
+import Api from "./components/Api";
+import Movie from "./components/Movie";
 import { useState } from "react";
 
 function App() {
   const [showText, setShowText] = useState(false);
 
-  return ( 
+  return (
     <div className="App">
       <Input />
       <Welcome />
@@ -33,6 +35,8 @@ function App() {
       )}
       <Greet />
       <Comment />
+      <Api />
+      <Movie />
     </div>
   );
 }
