@@ -1,9 +1,12 @@
 import React from "react";
 import { useState } from "react";
-import { Crud } from "./Crud";
+import { Crud } from "../components/Crud";
 import Like from "../components/Like";
+import { useContext } from "react";
+import { AppContext } from "../App";
 
 export const Comment = () => {
+  const { username } = useContext(AppContext);
   const [list, setList] = useState([]);
   const [newComment, setNewComment] = useState("");
   const handleChange = (event) => {
@@ -34,7 +37,7 @@ export const Comment = () => {
 
   return (
     <div>
-      <h1>Leave a comment</h1>
+      <h1>Leave a comment for {username} </h1>
       <Like />
       <div>
         <input onChange={handleChange} />
