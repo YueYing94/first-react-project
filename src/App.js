@@ -7,6 +7,7 @@ import { Comment } from "./pages/Comment";
 import { About } from "./pages/About";
 import { Funstuff } from "./pages/Funstuff";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import { Form } from './components/Form'
 
 export const AppContext = createContext();
 
@@ -41,6 +42,7 @@ function App() {
         </AppContext.Provider>
       </QueryClientProvider>
       <Input />
+      <Form />
     </div>
   );
 }
