@@ -12,9 +12,9 @@ function Like() {
   };
   return (
     <div>
-      {like}{" "}
-      <button onClick={increaseLike} disabled={buttonDisabled}>
-        <p style={{ color: textColor }}>Like</p>
+      {like}
+      <button onClick={increaseLike} disabled={buttonDisabled} style={{ color: textColor }}>
+        Like
       </button>
     </div>
   );

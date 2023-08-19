@@ -17,7 +17,7 @@ export const About = () => {
           setShowText(!showText);
         }}
       >
-        About Me
+        Click to see more about Me
       </button>
 
       {showText && (

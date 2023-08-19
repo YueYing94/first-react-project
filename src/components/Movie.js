@@ -8,7 +8,7 @@ function Movie() {
     fetch(`https://api.tvmaze.com/search/shows?q=${name}`)
       .then((res) => res.json())
       .then((data) => {
-        setResult(data[0].show)
+        setResult(data[0]?.show)
       });
   };
 
