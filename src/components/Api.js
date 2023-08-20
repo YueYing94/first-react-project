@@ -1,22 +1,18 @@
-import { useQuery } from "@tanstack/react-query";
+import { useGetJoke } from "./useGetJoke";
 
 function Api() {
-  const { data, isLoading, refetch } = useQuery(["joke"], () =>
-    fetch("https://official-joke-api.appspot.com/random_joke").then((res) =>
-      res.json()
-    )
-  );
+  const { jokeData, isLoading, refetch } = useGetJoke();
 
   if (isLoading) {
-    return <h1>Loading...</h1>
+    return <h1>Loading...</h1>;
   }
 
   return (
     <div>
       <button onClick={refetch}>Click to see more fun jokes!</button>
       <p>
-        {data?.setup}
-        {data?.punchline}
+        {jokeData?.setup}
+        {jokeData?.punchline}
       </p>
     </div>
   );

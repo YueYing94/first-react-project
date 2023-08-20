@@ -1,26 +1,22 @@
 import React from "react";
 import User from "../components/User";
-import { useState } from "react";
+import { useToggle } from "../components/useToggle";
 import { ChangeAbout } from "../components/ChangeAbout";
 import { useContext } from "react";
 import { AppContext } from "../App";
 
 export const About = () => {
   const { username } = useContext(AppContext);
-  const [showText, setShowText] = useState(false);
+  const [isVisitble, toggle] = useToggle();
 
   return (
     <div>
       <h1>About page for {username} </h1>
-      <button
-        onClick={() => {
-          setShowText(!showText);
-        }}
-      >
-        Click to see more about Me
+      <button onClick={toggle}>
+        {isVisitble ? "Hide" : "Click to see more about Me"}
       </button>
 
-      {showText && (
+      {isVisitble && (
         <User
           address="Rotterdam, the Netherlands"
           email="sarahyingyue1994@gmail.com"
