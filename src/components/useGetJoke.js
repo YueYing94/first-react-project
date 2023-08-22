@@ -11,7 +11,5 @@ export const useGetJoke = () => {
     )
   );
 
-
-
   return { jokeData, isLoading, refetch };
 };
